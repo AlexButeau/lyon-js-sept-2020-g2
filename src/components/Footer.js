@@ -4,7 +4,6 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import logo from './img/logo.png';
 import LogoGouv from './img/gouvernement-logo.png';
 
-
 const Footer = () => {
   return (
     <footer className="footer">
