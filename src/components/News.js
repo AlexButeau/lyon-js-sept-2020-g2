@@ -9,7 +9,7 @@ const News = () => {
 
   useEffect(() => {
     const source = axios.CancelToken.source();
-    const url = `https://newsapi.org/v2/everything?sources=le-monde&pageSize=7&qInTitle=covid&sortBy=publishedAt&apiKey=f545ace02057431081cf6684cc135a79`;
+    const url = `https://gnews.io/api/v4/search?q=covid&country=fr&max=7&token=6856e388a6280dcc28421facd91f5e5a`;
     axios
       .get(url, { cancelToken: source.token })
       .then((response) => response.data)
@@ -31,7 +31,7 @@ const News = () => {
         infiniteLoop
       >
         {arrayOfNews
-          .filter((article) => article.urlToImage !== null)
+          .filter((article) => article.image !== null)
           .map((article) => (
             <a
               href={article.url}
@@ -40,7 +40,7 @@ const News = () => {
               rel="noreferrer noopener "
             >
               <div className="container">
-                <img className="picture" alt="" src={article.urlToImage} />
+                <img className="picture" alt="" src={article.image} />
                 <p className="legend">{article.title}</p>
               </div>
             </a>
